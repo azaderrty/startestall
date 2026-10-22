@@ -384,11 +384,12 @@ public class WifiPlugin extends Plugin {
                 return null;
             }
             for (LinkAddress address : props.getLinkAddresses()) {
-                if (address.getType() == LinkAddress.TYPE_IPV4) {
-                    return address.getInetAddress().getHostAddress();
+                java.net.InetAddress inet = address.getAddress();
+                if (inet instanceof java.net.Inet4Address) {
+                    return inet.getHostAddress();
                 }
             }
-            return props.getLinkAddresses().isEmpty() ? null : props.getLinkAddresses().get(0).getInetAddress().getHostAddress();
+            return props.getLinkAddresses().isEmpty() ? null : props.getLinkAddresses().get(0).getAddress().getHostAddress();
         } catch (Throwable t) {
             return null;
         }

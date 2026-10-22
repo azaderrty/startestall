@@ -88,7 +88,6 @@ public class NetStorePlugin extends Plugin {
         }
         if (entry == null) {
             entry = new JSONObject();
-            entry.put("id", id);
             all.put(entry);
         }
         try {
