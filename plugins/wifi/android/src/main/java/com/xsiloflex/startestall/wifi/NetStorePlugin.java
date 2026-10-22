@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.util.Log;
 
 import androidx.security.crypto.EncryptedSharedPreferences;
-import androidx.security.crypto.MasterKey;
+import androidx.security.crypto.MasterKeys;
 
 import com.getcapacitor.JSArray;
 import com.getcapacitor.JSObject;
@@ -36,13 +36,11 @@ public class NetStorePlugin extends Plugin {
     @Override
     public void load() {
         try {
-            MasterKey masterKey = new MasterKey.Builder(getContext())
-                    .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
-                    .build();
+            String masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC);
             prefs = EncryptedSharedPreferences.create(
-                    getContext(),
                     FILE_NAME,
-                    masterKey,
+                    masterKeyAlias,
+                    getContext(),
                     EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
                     EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
             );

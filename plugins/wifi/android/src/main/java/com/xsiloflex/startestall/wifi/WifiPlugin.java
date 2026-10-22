@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
+import android.net.LinkAddress;
 import android.net.LinkProperties;
 import android.net.Network;
 import android.net.NetworkCapabilities;
@@ -77,7 +78,8 @@ public class WifiPlugin extends Plugin {
         WifiManager wifiManager = wifiManager();
         ret.put("wifiEnabled", wifiManager != null && wifiManager.isWifiEnabled());
         JSObject current = currentInfo();
-        ret.put("connected", current.getBool("connected", false));
+        Boolean connected = current.getBool("connected");
+        ret.put("connected", connected != null && connected);
         ret.put("ssid", current.getString("ssid"));
         ret.put("bssid", current.getString("bssid"));
         ret.put("rssi", current.getInt("rssi"));
@@ -381,8 +383,8 @@ public class WifiPlugin extends Plugin {
             if (caps == null || props == null) {
                 return null;
             }
-            for (LinkProperties.LinkAddress address : props.getLinkAddresses()) {
-                if (address.getType() == LinkProperties.LinkAddress.TYPE_IPV4) {
+            for (LinkAddress address : props.getLinkAddresses()) {
+                if (address.getType() == LinkAddress.TYPE_IPV4) {
                     return address.getInetAddress().getHostAddress();
                 }
             }
