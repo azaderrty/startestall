@@ -82,8 +82,10 @@ public class WifiPlugin extends Plugin {
         ret.put("connected", connected != null && connected);
         ret.put("ssid", current.getString("ssid"));
         ret.put("bssid", current.getString("bssid"));
-        ret.put("rssi", current.getInt("rssi"));
-        ret.put("linkSpeed", current.getInt("linkSpeed"));
+        Integer rssi = current.getInteger("rssi");
+        Integer linkSpeed = current.getInteger("linkSpeed");
+        ret.put("rssi", rssi == null ? 0 : rssi.intValue());
+        ret.put("linkSpeed", linkSpeed == null ? 0 : linkSpeed.intValue());
         ret.put("ip", current.getString("ip"));
         call.resolve(ret);
     }
