@@ -7,4 +7,27 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES" />
+
+    <application>
+        <service
+            android:name="com.xsiloflex.startestall.wifi.WifiPlugin"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.getcapacitor.Plugin" />
+            </intent-filter>
+            <meta-data
+                android:name="com.getcapacitor.Plugin"
+                android:value="com.xsiloflex.startestall.wifi.WifiPlugin" />
+        </service>
+        <service
+            android:name="com.xsiloflex.startestall.wifi.NetStorePlugin"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.getcapacitor.Plugin" />
+            </intent-filter>
+            <meta-data
+                android:name="com.getcapacitor.Plugin"
+                android:value="com.xsiloflex.startestall.wifi.NetStorePlugin" />
+        </service>
+    </application>
 </manifest>
