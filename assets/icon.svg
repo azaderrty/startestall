@@ -1,0 +1,28 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="wifi" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="star" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fde68a"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- star -->
+  <path fill="url(#star)" d="M782 118 L806 232 L920 256 L806 280 L782 394 L758 280 L644 256 L758 232 Z"/>
+
+  <!-- small star -->
+  <path fill="#fcd34d" opacity="0.85" d="M318 208 L332 268 L392 282 L332 296 L318 356 L304 296 L244 282 L304 268 Z"/>
+
+  <!-- wifi arcs -->
+  <g fill="none" stroke="url(#wifi)" stroke-width="62" stroke-linecap="round">
+    <path d="M232 604 A 320 320 0 0 1 792 604"/>
+    <path d="M330 700 A 220 220 0 0 1 694 700"/>
+    <path d="M428 796 A 120 120 0 0 1 596 796"/>
+  </g>
+
+  <!-- dot -->
+  <circle cx="512" cy="880" r="58" fill="url(#wifi)"/>
+</svg>

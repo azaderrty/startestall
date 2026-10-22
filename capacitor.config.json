@@ -1,0 +1,13 @@
+{
+  "appId": "com.xsiloflex.startestall",
+  "appName": "StarTestAll",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "CapacitorHttp": {
+      "enabled": true
+    }
+  }
+}

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">StarTestAll</string>
+    <string name="title_activity_main">StarTestAll</string>
+    <string name="package_name">com.xsiloflex.startestall</string>
+    <string name="custom_url_scheme">com.xsiloflex.startestall</string>
+</resources>
